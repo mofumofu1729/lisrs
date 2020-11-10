@@ -7,7 +7,7 @@ fn main() {
     let mut input = String::new();
     std::io::stdin().read_line(&mut input).ok();
 
-    let answer = input.replace("(", " ( ").replace(")", " ) ").split_whitespace();
+    let mut answer = input.replace("(", " ( ").replace(")", " ) ").split_whitespace();
 
     for t in answer {
         println!("{}", t);
