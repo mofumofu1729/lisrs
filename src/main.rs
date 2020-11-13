@@ -7,6 +7,14 @@ fn tokenize(s: &str) -> Vec<String> {
     return tokens;
 }
 
+fn read_from(tokens: Vec<String>) -> Vec<String>{
+    if tokens.len() == 0 {
+        println!("unexpected EOF while reading");
+    }
+
+    return tokens;
+}
+
 fn main() {
     print!("lis.rs> ");
     std::io::stdout().flush().unwrap();
@@ -16,9 +24,11 @@ fn main() {
 
     let split = tokenize(&input);
 
-    let op = &split[1];
-    let a: i32 = split[2].parse().unwrap();
-    let b: i32 = split[3].parse().unwrap();
+    let tokens = read_from(split);
+
+    let op = &tokens[1];
+    let a: i32 = tokens[2].parse().unwrap();
+    let b: i32 = tokens[3].parse().unwrap();
 
     if op == "+" {
       println!("{}", a + b);
