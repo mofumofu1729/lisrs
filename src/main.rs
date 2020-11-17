@@ -34,5 +34,9 @@ fn main() {
       println!("{}", a + b);
     } else if op == "-" {
       println!("{}", a - b);
+    } else if op == "*" {
+      println!("{}", a * b);
+    } else if op == "/" {
+      println!("{}", a / b);
     }
 }
