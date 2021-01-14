@@ -19,5 +19,17 @@ fn main() {
       println!("{}", a + b);
     } else if op == "-" {
       println!("{}", a - b);
+    } else if op == "*" {
+      println!("{}", a * b);
+    } else if op == "/" {
+      println!("{}", a / b);
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn sample_test() {
+        assert!(true);
     }
 }
