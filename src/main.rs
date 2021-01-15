@@ -43,8 +43,17 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
+    use super::*;
+
     #[test]
-    fn sample_test() {
-        assert!(true);
+    fn test_tokenize() {
+        let input = "(+ 1 2)";
+
+        let expected = vec!("(", "+", "1", "2", ")");
+        let actual = tokenize(input);
+
+        for (e, a) in expected.iter().zip(actual.iter()) {
+             assert_eq!(e, a);
+        }
     }
 }
