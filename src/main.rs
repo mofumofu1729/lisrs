@@ -2,12 +2,15 @@ use std::io::{stdout, Write};
 
 fn tokenize(s: &str) -> Vec<String> {
     let spreaded = s.replace("(", " ( ").replace(")", " ) ");
-    let tokens: Vec<String> = spreaded.split_whitespace().map(|item| item.to_string()).collect();
+    let tokens: Vec<String> = spreaded
+        .split_whitespace()
+        .map(|item| item.to_string())
+        .collect();
 
     return tokens;
 }
 
-fn read_from(tokens: Vec<String>) -> Vec<String>{
+fn read_from(tokens: Vec<String>) -> Vec<String> {
     if tokens.len() == 0 {
         println!("unexpected EOF while reading");
     }
@@ -49,11 +52,11 @@ mod tests {
     fn test_tokenize() {
         let input = "(+ 1 2)";
 
-        let expected = vec!("(", "+", "1", "2", ")");
+        let expected = vec!["(", "+", "1", "2", ")"];
         let actual = tokenize(input);
 
         for (e, a) in expected.iter().zip(actual.iter()) {
-             assert_eq!(e, a);
+            assert_eq!(e, a);
         }
     }
 }
