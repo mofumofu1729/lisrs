@@ -18,7 +18,7 @@ fn read_from(tokens: Vec<String>) -> Vec<String> {
     return tokens;
 }
 
-fn eval(split: std::vec::Vec<std::string::String>) {
+fn eval(split: std::vec::Vec<std::string::String>) -> i32 {
     let tokens = read_from(split);
 
     let op = &tokens[1];
@@ -26,13 +26,15 @@ fn eval(split: std::vec::Vec<std::string::String>) {
     let b: i32 = tokens[3].parse().unwrap();
 
     if op == "+" {
-        println!("{}", a + b);
+        return a + b;
     } else if op == "-" {
-        println!("{}", a - b);
+        return a - b;
     } else if op == "*" {
-        println!("{}", a * b);
+        return a * b;
     } else if op == "/" {
-        println!("{}", a / b);
+        return a / b;
+    } else {
+        return 0; // FIXME
     }
 }
 
@@ -41,11 +43,11 @@ fn main() {
         print!("lis.rs> ");
         std::io::stdout().flush().unwrap();
 
-        let mut input = String::new();
-        std::io::stdin().read_line(&mut input).ok();
+        let mut exp = String::new();
+        std::io::stdin().read_line(&mut exp).ok();
 
-        let split = tokenize(&input);
-        eval(split);
+        let val = eval(tokenize(&exp));
+        println!("{}", val);
     }
 }
 
