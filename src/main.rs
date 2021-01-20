@@ -34,7 +34,7 @@ fn eval(split: std::vec::Vec<std::string::String>) -> i32 {
     } else if op == "/" {
         return a / b;
     } else {
-        return 0; // FIXME
+        panic!("unexpected operator"); // FIXME エラー処理を実施
     }
 }
 
