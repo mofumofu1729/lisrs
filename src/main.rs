@@ -66,4 +66,34 @@ mod tests {
             assert_eq!(e, a);
         }
     }
+
+    #[test]
+    fn test_eval1() {
+       let input = vec!["(", "+", "2", "3", ")"].into_iter().map(|s| s.to_string()).collect();
+
+       let expected = 5;
+       let actual = eval(input);
+
+       assert_eq!(expected, actual);
+    }
+
+    #[test]
+    fn test_eval2() {
+       let input = vec!["(", "-", "2", "3", ")"].into_iter().map(|s| s.to_string()).collect();
+
+       let expected = -1;
+       let actual = eval(input);
+
+       assert_eq!(expected, actual);
+    }
+
+    #[test]
+    fn test_eval_nested_parrents() {
+       let input = vec!["(", "+", "2", "(", "+", "3", "4", ")", ")"].into_iter().map(|s| s.to_string()).collect();
+
+       let expected = 9;
+       let actual = eval(input);
+
+       assert_eq!(expected, actual);
+    }
 }
